@@ -1,7 +1,7 @@
 import sys
 
-def GEDCOM():
-    with open('Arjun_Dass_GEDCOM-2.ged') as i:
+def GEDCOMParser():
+    with open('gedcom_files/Family.ged') as i:
         for line in i:
             print(line.rstrip())
             list = line.split()
@@ -13,12 +13,12 @@ def GEDCOM():
                     print("Tag: ",list[1])
                 elif list[2] in ('INDI', 'FAM'):
                     print("Tag: ",list[2])
-                else: print('Tag: TAG NOT SUPPORTED')
+                else: print('Tag: Invalid Tag')
             except IndexError:
                 print('Tag: Invalid Tag')
 
 
 if __name__=='__main__':
     sys.stdout = open("OutputFile.txt","w")
-    GEDCOM()
+    GEDCOMParser()
     sys.__stdout__.close()
