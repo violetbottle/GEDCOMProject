@@ -4,6 +4,7 @@ This file provides classes for parsing the GEDCOM file
 validTags = ['NAME', 'SEX', 'FAMS', ' FAMC', 'MARR', 'BIRT', 'WIFE', 'HUSB', 'CHIL', 'DEAT', 'DIV', 'DATE', 'HEAD','TRLR', 'NOTE',
              'INDI', 'FAM']
 
+# class for every gedcom tag line
 class gedcomTagLine(object):
 
     def __init__(self, line):
@@ -13,8 +14,10 @@ class gedcomTagLine(object):
         self.ref = None
 
         listLine = line.split(' ',)
+        # set level of the object
         self.level = int(listLine[0])
 
+        # for setting tag and argument
         if self.level > 0:
             self.tag = listLine[1]
             self.arg = listLine[2:]

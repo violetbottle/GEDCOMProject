@@ -7,21 +7,24 @@ def GEDCOMParser(filename):
     family = []
     gedlist = []
 
+    # read each line from file and strip \n from the last
     lines = [line.rstrip('\n') for line in open(filename)]
 
+    # Create objects and add it to the list
     for line in lines:
-
         current_gedcom = gedcomTagLine(line)
         gedlist.append(current_gedcom)
 
-
+    # Iterate every tag
     for index, gedcomline in enumerate(gedlist):
-
+        #for saving Individual person
         if gedcomline.tag == 'INDI':
 
             date_type = None
+            # Create blank object for the person
             indiObject = individualPerson(gedcomline.ref)
 
+            # set the values of the object UNTIL next level 0
             for gedline in gedlist[index + 1:]:
                 if gedline.level == 0:
                     break
@@ -38,6 +41,7 @@ def GEDCOMParser(filename):
                 if gedline.tag == "FAMS":
                     indiObject.fams.append(gedline.arg[0])
 
+                # check if date is birth or date
                 if gedline.tag == 'DATE':
                     if date_type == 'BIRT':
                         indiObject.birthday = datetime(
@@ -53,13 +57,19 @@ def GEDCOMParser(filename):
                             int(gedline.arg[0])
                         )
                         date_type = None
+
+            # add object into the individual list
             individual.append(indiObject)
 
+        # For family list
         if gedcomline.tag == 'FAM':
 
             date_type = None
+
+            # create blank object
             familyObject = familyClass(gedcomline.ref)
 
+            # ste values until next level 0
             for gedline in gedlist[index + 1:]:
                 if gedline.level == 0:
                     break
@@ -74,7 +84,7 @@ def GEDCOMParser(filename):
                 if gedline.tag == "CHIL":
                     familyObject.children.append(gedline.arg[0])
 
-
+                # check if marriage date or divorce date
                 if gedline.tag == "DATE":
                     if date_type == "MARR":
 
@@ -91,6 +101,7 @@ def GEDCOMParser(filename):
                             datetime.strptime(gedline.arg[1], '%b').month,
                             int(gedline.arg[0]))
                         date_type = None
+            # append object into the family list
             family.append(familyObject)
 
     return individual, family
