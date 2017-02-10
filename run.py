@@ -29,7 +29,7 @@ def main():
     else:
         print("[!!] File \"%s\" does not exist.\nExiting..." % path)
         exit(-1)
-
+    #printing values
     printSummary(individual, families)
 
 # function for printing the list of individuals and families to
