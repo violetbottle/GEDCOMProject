@@ -15,6 +15,7 @@ FILENAME = 'gedcom_files/Family.ged'
 def main():
     arg_parser = argparse.ArgumentParser()
     action = arg_parser.add_mutually_exclusive_group()
+    #argument not working
     action.add_argument("-f", "--file", nargs="?", const=FILENAME,
                         default=FILENAME,
                         help="Specify a specific file to run GEDCOM parser on. \
