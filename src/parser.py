@@ -8,7 +8,7 @@ def GEDCOMParser(filename):
     gedlist = []
 
     # read each line from file and strip \n from the last
-    lines = [line.rstrip('\n') for line in open(filename)]
+    lines = [line.rstrip('\n\r') for line in open(filename)]
 
     # Create objects and add it to the list
     for line in lines:
