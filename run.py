@@ -8,23 +8,23 @@ __author__ = "Parth Pandya, Malav Shah, Sukanya Rangarajan, Rajat Kinkhabwlal"
 __email__ = "ppandya4@stevens.edu, mshah64@stevens.edu, srangar1@stevens.edu, rkinkhab@stevens.edu"
 
 #default file path
-FILENAME = 'gedcom_files/Family.ged'
+FILENAME = 'familyTree.ged'
 
 
 # main function for taking the file path
 def main():
+    # Allow for arguments to be passed for filename
     arg_parser = argparse.ArgumentParser()
     action = arg_parser.add_mutually_exclusive_group()
-    #argument not working
     action.add_argument("-f", "--file", nargs="?", const=FILENAME,
                         default=FILENAME,
                         help="Specify a specific file to run GEDCOM parser on. \
                         Default is " + FILENAME)
 
     arguments = arg_parser.parse_args()
-
     path = arguments.file
     if os.path.exists(path):
+        print("Path accepted")
         individual, families = GEDCOMParser(path)
     else:
         print("[!!] File \"%s\" does not exist.\nExiting..." % path)
