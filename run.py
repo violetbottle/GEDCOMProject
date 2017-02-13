@@ -1,7 +1,6 @@
 import argparse
 import os
 
-
 from src.parser import GEDCOMParser
 from prettytable import PrettyTable
 
@@ -40,6 +39,7 @@ def main():
 # function for printing the list of individuals and families to
 def printSummary(individual, families):
 
+    # for printing Individuals
     x.field_names = ["id","Name","Birthday","Sex","Death Date","Alive","Child","Spouse"]
     for line in individual:
         attrs = vars(line)
@@ -50,7 +50,7 @@ def printSummary(individual, families):
 #    print(', '.join("%s: %s" % item for item in attrs.items()))
 
     print('----------------------------------------------------------------------------------------------------------------------------------------')
-
+    # For prnting Families
     y.field_names = ["Fid","Marriage","Husband","Husband Name","Wife","Wife Name","Children","Divorce"]
     for line in families:
         attrs = vars(line)
