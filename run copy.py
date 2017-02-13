@@ -1,20 +1,15 @@
 import argparse
 import os
 
-
 from src.parser import GEDCOMParser
-from prettytable import PrettyTable
 
 #authors of the project
 __author__ = "Parth Pandya, Malav Shah, Sukanya Rangarajan, Rajat Kinkhabwlal"
 __email__ = "ppandya4@stevens.edu, mshah64@stevens.edu, srangar1@stevens.edu, rkinkhab@stevens.edu"
 
 #default file path
+FILENAME = '/Users/malavshah/GEDCOMProject/MyFamily.ged'
 
-FILENAME = 'gedcom_files/Family.ged'
-
-x = PrettyTable()
-y = PrettyTable()
 
 # main function for taking the file path
 def main():
@@ -40,23 +35,14 @@ def main():
 # function for printing the list of individuals and families to
 def printSummary(individual, families):
 
-    x.field_names = ["Uid","Name","Birthday","Sex","Death Date","Famc","Fams"]
     for line in individual:
         attrs = vars(line)
-        x.add_row(attrs.values())
-
-    print(x)
-
-#    print(', '.join("%s: %s" % item for item in attrs.items()))
+        print (', '.join("%s: %s" % item for item in attrs.items()))
 
     print('----------------------------------------------------------------------------------------------------------------------------------------')
-
-    y.field_names = ["Fid","Marriage","Husband","Wife","Children","Divorce"]
     for line in families:
         attrs = vars(line)
-        y.add_row(attrs.values())
-#        print (', '.join("%s: %s" % item for item in attrs.items()))
-    print(y)
+        print (', '.join("%s: %s" % item for item in attrs.items()))
 
 if __name__ == '__main__':
     main()
