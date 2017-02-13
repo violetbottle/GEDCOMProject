@@ -40,6 +40,7 @@ class individualPerson(object):
         self.birthday = None # Date of birthday of individual person
         self.sex = None # sex of individual person
         self.deathDate = None # Date of death of individual person
+        self.alive = True # person alive or dead
         self.famc = [] # family id where individual is a child
         self.fams = [] # family id where individual is parent
 
@@ -50,6 +51,8 @@ class familyClass(object):
         self.uid = uid
         self.marriage = None  # marriage event for family
         self.husband = None  # for husband in family
+        self.husbandName = None # name of husband
         self.wife = None  # for wife in family
+        self.wifeName = None # for name of the wife
         self.children = []  # for child in family
         self.divorce = None  # divorce event in family

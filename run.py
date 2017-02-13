@@ -40,7 +40,7 @@ def main():
 # function for printing the list of individuals and families to
 def printSummary(individual, families):
 
-    x.field_names = ["Uid","Name","Birthday","Sex","Death Date","Famc","Fams"]
+    x.field_names = ["id","Name","Birthday","Sex","Death Date","Alive","Child","Spouse"]
     for line in individual:
         attrs = vars(line)
         x.add_row(attrs.values())
@@ -51,7 +51,7 @@ def printSummary(individual, families):
 
     print('----------------------------------------------------------------------------------------------------------------------------------------')
 
-    y.field_names = ["Fid","Marriage","Husband","Wife","Children","Divorce"]
+    y.field_names = ["Fid","Marriage","Husband","Husband Name","Wife","Wife Name","Children","Divorce"]
     for line in families:
         attrs = vars(line)
         y.add_row(attrs.values())

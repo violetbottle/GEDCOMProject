@@ -57,6 +57,7 @@ def GEDCOMParser(filename):
                             datetime.strptime(gedline.arg[1], '%b').month,
                             int(gedline.arg[0])
                         )
+                        indiObject.alive = False
                         date_type = None
 
             # add object into the individual list
@@ -80,8 +81,14 @@ def GEDCOMParser(filename):
                     date_type = "DIV"
                 if gedline.tag == "HUSB":
                     familyObject.husband = gedline.arg[0]
+                    for persons in individual:
+                        if persons.uid == gedline.arg[0]:
+                            familyObject.husbandName = persons.name
                 if gedline.tag == "WIFE":
                     familyObject.wife = gedline.arg[0]
+                    for persons in individual:
+                        if persons.uid == gedline.arg[0]:
+                            familyObject.wifeName = persons.name
                 if gedline.tag == "CHIL":
                     familyObject.children.append(gedline.arg[0])
 
