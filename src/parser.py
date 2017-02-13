@@ -1,3 +1,4 @@
+from datetime import date
 from datetime import datetime
 from .classModels import gedcomTagLine, individualPerson, familyClass
 
@@ -44,14 +45,14 @@ def GEDCOMParser(filename):
                 # check if date is birth or date
                 if gedline.tag == 'DATE':
                     if date_type == 'BIRT':
-                        indiObject.birthday = datetime(
+                        indiObject.birthday = date(
                             int(gedline.arg[2]),
                             datetime.strptime(gedline.arg[1], '%b').month,
                             int(gedline.arg[0])
                         )
                         date_type = None
                     elif date_type == 'DEAT':
-                        indiObject.deathDate = datetime(
+                        indiObject.deathDate = date(
                             int(gedline.arg[2]),
                             datetime.strptime(gedline.arg[1], '%b').month,
                             int(gedline.arg[0])
@@ -88,7 +89,7 @@ def GEDCOMParser(filename):
                 if gedline.tag == "DATE":
                     if date_type == "MARR":
 
-                        familyObject.marriage = datetime(
+                        familyObject.marriage = date(
                             int(gedline.arg[2]),
                             datetime.strptime(gedline.arg[1], '%b').month,
                             int(gedline.arg[0]))
@@ -96,7 +97,7 @@ def GEDCOMParser(filename):
 
                     elif date_type == "DIV":
 
-                        familyObject.divorce = datetime(
+                        familyObject.divorce = date(
                             int(gedline.arg[2]),
                             datetime.strptime(gedline.arg[1], '%b').month,
                             int(gedline.arg[0]))
