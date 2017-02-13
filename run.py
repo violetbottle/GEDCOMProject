@@ -10,7 +10,8 @@ __author__ = "Parth Pandya, Malav Shah, Sukanya Rangarajan, Rajat Kinkhabwlal"
 __email__ = "ppandya4@stevens.edu, mshah64@stevens.edu, srangar1@stevens.edu, rkinkhab@stevens.edu"
 
 #default file path
-FILENAME = '/Users/malavshah/GEDCOMProject/MyFamily.ged'
+
+FILENAME = 'gedcom_files/Family.ged'
 
 x = PrettyTable()
 y = PrettyTable()
