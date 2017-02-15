@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 
 from src.parser import GEDCOMParser
 from prettytable import PrettyTable
@@ -59,4 +60,6 @@ def printSummary(individual, families):
     print(y)
 
 if __name__ == '__main__':
+    sys.stdout = open("output.txt","w")
     main()
+    sys.__stdout__.close()
