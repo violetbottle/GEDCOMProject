@@ -1,4 +1,11 @@
 Path accepted
+                                     ERRORS                                     
+
+User Story             Description:                                  Location
+--------------------------------------------------------------------------------
+US02            Birth of wife occurs after marriage                   @I14@     
+
+
 +-------+------------------------------+------------+-----+------------+-------+-----------+------------------+
 |   id  |             Name             |  Birthday  | Sex | Death Date | Alive |   Child   |      Spouse      |
 +-------+------------------------------+------------+-----+------------+-------+-----------+------------------+
@@ -15,7 +22,7 @@ Path accepted
 | @I11@ |    ['Harold', '/Walton/']    | 1934-12-01 |  M  |    None    |  True |     []    |     ['@F4@']     |
 | @I12@ |   ['William', '/Powell/']    | 1936-04-24 |  M  |    None    |  True |     []    |     ['@F5@']     |
 | @I13@ |    ['Edgar', '/Powell/']     | 1966-09-02 |  M  |    None    |  True |  ['@F5@'] |    ['@F10@']     |
-| @I14@ |     ['Mary', '/Cornel/']     | 1966-05-17 |  F  |    None    |  True |     []    |    ['@F10@']     |
+| @I14@ |     ['Mary', '/Cornel/']     | 1996-05-17 |  F  |    None    |  True |     []    |    ['@F10@']     |
 | @I15@ |    ['Louis', '/Powell/']     | 1989-01-30 |  M  |    None    |  True | ['@F10@'] |        []        |
 | @I16@ |   ['Duncan', '/Thomson/']    | 1977-02-01 |  M  |    None    |  True |     []    |     ['@F6@']     |
 | @I17@ |   ['Donald', '/Thomson/']    | 2005-11-24 |  M  |    None    |  True |  ['@F6@'] |        []        |

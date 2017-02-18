@@ -4,6 +4,7 @@ import sys
 
 from src.parser import GEDCOMParser
 from prettytable import PrettyTable
+from src.userStoriesValidation import story_validation
 
 #authors of the project
 __author__ = "Parth Pandya, Malav Shah, Sukanya Rangarajan, Rajat Kinkhabwlal"
@@ -11,7 +12,7 @@ __email__ = "ppandya4@stevens.edu, mshah64@stevens.edu, srangar1@stevens.edu, rk
 
 #default file path
 
-FILENAME = 'gedcom_files/Family.ged'
+FILENAME = 'gedcom_files/fail/Family.ged'
 
 x = PrettyTable()
 y = PrettyTable()
@@ -34,12 +35,16 @@ def main():
     else:
         print("[!!] File \"%s\" does not exist.\nExiting..." % path)
         exit(-1)
+
+    # Check for user stories
+    story_validation(individual, families)
+
     #printing values
     printSummary(individual, families)
 
 # function for printing the list of individuals and families to
 def printSummary(individual, families):
-
+    print("\n")
     # for printing Individuals
     x.field_names = ["id","Name","Birthday","Sex","Death Date","Alive","Child","Spouse"]
     for line in individual:
