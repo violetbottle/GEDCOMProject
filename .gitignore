@@ -201,7 +201,7 @@ var/
 sdist/
 develop-eggs/
 .installed.cfg
-workspace.xml
+.idea/workspace.xml
 
 # Installer logs
 pip-log.txt
