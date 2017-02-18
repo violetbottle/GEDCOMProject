@@ -1,4 +1,8 @@
 # this file is to check and validate user stories
+<<<<<<< HEAD
+
+#for test
+=======
 from datetime import datetime
 
 error_locations = []
@@ -66,3 +70,4 @@ def report_error(error_type, description, locations):
     error_locations.extend(locations)
 
 
+>>>>>>> 6f9c3edeafa66e1375153f39c3e4c3a6efb07aca
