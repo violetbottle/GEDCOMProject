@@ -1,6 +1,7 @@
 from unittest import TestCase
 import os
 from .parser import GEDCOMParser
+from .classModels import individualPerson, familyClass
 from .userStoriesValidation import birth_before_marriage
 
 cur_path = os.path.dirname(__file__)
@@ -10,18 +11,14 @@ acceptfile = "Family.ged"
 fail_file = os.path.relpath("..\\" + FAIL_DIR + acceptfile, cur_path)
 pass_file = os.path.relpath("..\\" + PASS_DIR + acceptfile, cur_path)
 
+
 class test_birth_before_marriage(TestCase):
-    def test_birth_before_marriage(self):
 
-        if os.path.exists(fail_file) and os.path.exists(pass_file):
-            individuals, families = GEDCOMParser(pass_file)
-            self.assertTrue(birth_before_marriage(individuals, families))
-            individuals, families = GEDCOMParser(fail_file)
-            self.assertFalse(birth_before_marriage(individuals, families))
-        else:
-            print("!!test_marriage_before_death acceptance file not found")
+    def test_birth_before_marriage_1(self):
+        individuals, families = GEDCOMParser(pass_file)
+        self.assertTrue(birth_before_marriage(individuals, families))
 
-    def test_birth_before_date(self):
+    def test_birth_before_marriage_2(self):
         individuals, families = GEDCOMParser(pass_file)
         for family in families:
             if family.marriage:
@@ -34,3 +31,14 @@ class test_birth_before_marriage(TestCase):
                         wife = indiv
                 self.assertNotEquals(husband.birthday, wife.birthday)
 
+    def test_birth_before_marriage_3(self):
+        individuals, families = GEDCOMParser(fail_file)
+        self.assertFalse(birth_before_marriage(individuals, families))
+
+    def test_birth_before_marriage_4(self):
+        individuals, families = GEDCOMParser(pass_file)
+        self.assertIsNot(individuals, familyClass)
+
+    def test_birth_before_marriage_5(self):
+        individuals, families = GEDCOMParser(pass_file)
+        self.assertNotIsInstance(families,individualPerson)
