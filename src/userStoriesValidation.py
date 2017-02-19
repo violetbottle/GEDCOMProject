@@ -66,9 +66,6 @@ def us05(individuals, families):
             husband = None
             wife = None
 
-<<<<<<< HEAD
-
-=======
             for indiv in individuals:
                 if indiv.uid == family.husband:
                     husband = indiv
@@ -91,7 +88,7 @@ def us05(individuals, families):
                     return_flag = False
 
     return return_flag
->>>>>>> 0fdf475f69f7a234a29fd3c420e2c67fd64a9742
+
 # report Error to the console
 def report_error(error_type, description, locations):
     # report("ERROR", error_type, description, locations)
