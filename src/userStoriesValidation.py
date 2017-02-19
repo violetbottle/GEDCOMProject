@@ -16,7 +16,7 @@ def story_validation(individuals, families):
 
     # Sprint 1
     birth_before_marriage(individuals, families)
-
+    us05(individuals, families)
 
 ###########################################################################################
 
