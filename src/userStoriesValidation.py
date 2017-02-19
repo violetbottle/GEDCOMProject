@@ -73,7 +73,7 @@ def us05(individuals, families):
                     wife = indiv
 
             if wife.alive == False:
-                if family.marriage < wife.deathDate:
+                if family.marriage > wife.deathDate:
                     # Found a case spouse marries before birthday
                     error_descrip = "Death of Wife occurs before marriage"
                     error_location = [wife.uid]
