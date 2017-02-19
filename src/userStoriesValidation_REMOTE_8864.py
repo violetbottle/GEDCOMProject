@@ -1,9 +1,11 @@
 # this file is to check and validate user stories
+<<<<<<< HEAD
+
+#for test
+=======
 from datetime import datetime
-from unittest import TestCase
 
 error_locations = []
-
 
 def story_validation(individuals, families):
     # To print Errors
@@ -18,8 +20,9 @@ def story_validation(individuals, families):
 
 ###########################################################################################
 
-# US02 - Birth should occur before marriage of that individual
+#US02 - Birth should occur before marriage of that individual
 def birth_before_marriage(individuals, families):
+
     # For each individual check if birth occurs before marriage
     return_flag = True
     error_type = "US02"
@@ -50,7 +53,6 @@ def birth_before_marriage(individuals, families):
 
     return return_flag
 
-
 def birth_before_date():
     pass
 ########################################################################
@@ -66,9 +68,6 @@ def us05(individuals, families):
             husband = None
             wife = None
 
-<<<<<<< HEAD
-
-=======
             for indiv in individuals:
                 if indiv.uid == family.husband:
                     husband = indiv
@@ -91,10 +90,9 @@ def us05(individuals, families):
                     return_flag = False
 
     return return_flag
->>>>>>> 0fdf475f69f7a234a29fd3c420e2c67fd64a9742
 # report Error to the console
 def report_error(error_type, description, locations):
-    # report("ERROR", error_type, description, locations)
+    #report("ERROR", error_type, description, locations)
 
     if isinstance(locations, list):
         locations = ','.join(locations)
@@ -104,3 +102,6 @@ def report_error(error_type, description, locations):
     print(estr)
 
     error_locations.extend(locations)
+
+
+>>>>>>> 6f9c3edeafa66e1375153f39c3e4c3a6efb07aca

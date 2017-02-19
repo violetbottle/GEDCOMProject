@@ -14,7 +14,7 @@ def story_validation(individuals, families):
 
     # Sprint 1
     birth_before_marriage(individuals, families)
-    us05(individuals, families)
+
 
 ###########################################################################################
 
@@ -53,45 +53,8 @@ def birth_before_marriage(individuals, families):
 
 def birth_before_date():
     pass
-########################################################################
-#US05 Marriage before Death
-def us05(individuals, families):
 
-    # For each individual check if marriage occurs before death
-    return_flag = True
-    error_type = "US05"
-    for family in families:
-        if family.marriage:
-            # Search through individuals to get husband and wife
-            husband = None
-            wife = None
 
-<<<<<<< HEAD
-
-=======
-            for indiv in individuals:
-                if indiv.uid == family.husband:
-                    husband = indiv
-                if indiv.uid == family.wife:
-                    wife = indiv
-
-            if wife.alive == False:
-                if family.marriage < wife.deathDate:
-                    # Found a case spouse marries before birthday
-                    error_descrip = "Death of Wife occurs before marriage"
-                    error_location = [wife.uid]
-                    report_error(error_type, error_descrip, error_location)
-                    return_flag = False
-
-            if husband.alive == False:
-                if husband.deathDate < family.marriage:
-                    error_descrip = "Death of Husband occurs before marriage"
-                    error_location = [husband.uid]
-                    report_error(error_type, error_descrip, error_location)
-                    return_flag = False
-
-    return return_flag
->>>>>>> 0fdf475f69f7a234a29fd3c420e2c67fd64a9742
 # report Error to the console
 def report_error(error_type, description, locations):
     # report("ERROR", error_type, description, locations)
